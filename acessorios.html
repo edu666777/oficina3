@@ -49,7 +49,7 @@
         }
 
         header .logo img {
-            width: 60px;
+            width: 240px;
             filter: drop-shadow(0 0 5px var(--blood-red));
         }
 
@@ -104,40 +104,56 @@
         }
 
         /* SUBMENU */
-        .submenu {
-            display: none;
-            position: absolute;
-            top: 100%;
-            left: 0;
-            background-color: #222;
-            padding: 10px 0;
-            border-radius: 0 0 5px 5px;
-            min-width: 200px;
-            z-index: 100;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.5);
-            border-top: 3px solid var(--blood-red);
-        }
+/* ================================================== */
+/* ESTILOS DO SUBMENU - VERSÃO COMPACTA SEM ESPAÇOS */
+/* ================================================== */
 
-        .submenu li {
-            width: 100%;
-        }
+/* Container principal do submenu (inicialmente invisível) */
+.submenu {
+    opacity: 0;                /* Totalmente transparente */
+    visibility: hidden;        /* Escondido da visualização */
+    position: absolute;        /* Posicionamento absoluto em relação ao menu pai */
+    top: 100%;                 /* Posicionado logo abaixo do item do menu */
+    left: 0;                   /* Alinhado à esquerda do item pai */
+    background-color: #222;    /* Cor de fundo escura */
+    padding: 0;                /* SEM espaçamento interno (remove o espaço azul) */
+    border-radius: 0 0 5px 5px; /* Bordas arredondadas apenas na parte inferior */
+    min-width: 160px;          /* Largura mínima do submenu */
+    z-index: 100;              /* Garante que fique acima de outros elementos */
+    box-shadow: 0 5px 15px rgba(0,0,0,0.5); /* Sombra para efeito de profundidade */
+    border-top: 3px solid var(--blood-red); /* Linha vermelha no topo como detalhe */
+    font-size: 0.85em;         /* Tamanho de fonte reduzido */
+    transition: opacity 0.2s ease, visibility 0.2s ease; /* Animação suave de aparecimento */
+}
 
-        .submenu a {
-            display: block;
-            padding: 10px 15px;
-            color: #ddd;
-            transition: all 0.3s;
-        }
+/* Cada item da lista do submenu */
+.submenu li {
+    width: 100%;              /* Ocupa 100% da largura disponível */
+    margin: 0;                /* Remove qualquer margem entre itens */
+}
 
-        .submenu a:hover {
-            background-color: var(--dark-red);
-            color: #fff;
-            padding-left: 20px;
-        }
+/* Links clicáveis do submenu */
+.submenu a {
+    display: block;           /* Transforma em bloco para preencher toda a área */
+    padding: 5px 10px;        /* Espaçamento interno mínimo (5px topo/baixo, 10px laterais) */
+    color: #ddd;              /* Cor do texto cinza claro */
+    transition: background-color 0.15s; /* Transição suave da cor de fundo */
+}
 
-        nav ul li:hover .submenu {
-            display: block;
-        }
+/* Efeito quando o mouse passa sobre os links */
+.submenu a:hover {
+    background-color: var(--dark-red); /* Fundo vermelho escuro */
+    color: #fff;              /* Texto branco no hover */
+}
+
+/* Regras para exibir o submenu quando:
+   - O mouse está sobre o item do menu principal (li:hover)
+   - OU sobre o próprio submenu */
+nav ul li:hover .submenu,
+.submenu:hover {
+    opacity: 1;               /* Torna totalmente visível */
+    visibility: visible;      /* Mostra o elemento */
+}
 
         /* MAIN CONTENT */
         .container {
@@ -524,7 +540,7 @@
                 <li>
                     <a href="#">Jogos</a>
                     <ul class="submenu">
-                        <li><a href="./indexXbox.html">Xbox</a></li>
+                        <li><a href="./indexxbox.html">Xbox</a></li>
                         <li><a href="./indexplaystation.html">PlayStation</a></li>
                         <li><a href="./indexnintendo.html">Nintendo</a></li>
                     </ul>
