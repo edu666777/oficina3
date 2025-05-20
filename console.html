@@ -905,6 +905,39 @@ nav ul li:hover .submenu,
                 alert('Seu carrinho está vazio!');
             }
         });
+
+// filepath: c:\Users\eduma\OneDrive - Universidade Federal do Ceará\Área de Trabalho\estudos ;)\cursos\fullstack\oficina 3 edu\console.html
+
+// Submenu desaparece após 5 segundos ao sair com o mouse
+let submenuTimeout;
+
+document.querySelectorAll('nav ul li').forEach(function(li) {
+    const submenu = li.querySelector('.submenu');
+    if (submenu) {
+        li.addEventListener('mouseenter', function() {
+            clearTimeout(submenuTimeout);
+            submenu.style.opacity = '1';
+            submenu.style.visibility = 'visible';
+        });
+        li.addEventListener('mouseleave', function() {
+            submenuTimeout = setTimeout(function() {
+                submenu.style.opacity = '0';
+                submenu.style.visibility = 'hidden';
+            }, 3000); // 3 segundos
+        });
+        submenu.addEventListener('mouseenter', function() {
+            clearTimeout(submenuTimeout);
+            submenu.style.opacity = '1';
+            submenu.style.visibility = 'visible';
+        });
+        submenu.addEventListener('mouseleave', function() {
+            submenuTimeout = setTimeout(function() {
+                submenu.style.opacity = '0';
+                submenu.style.visibility = 'hidden';
+            }, 5000);
+        });
+    }
+});
     </script>
 </body>
 </html>

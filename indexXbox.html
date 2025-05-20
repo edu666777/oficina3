@@ -864,6 +864,35 @@
         alert('Seu carrinho está vazio!');
       }
     });
+
+    // filepath: c:\Users\eduma\OneDrive - Universidade Federal do Ceará\Área de Trabalho\estudos ;)\cursos\fullstack\oficina 3 edu\indexXbox.html
+
+// Submenu desaparece após 5 segundos ao sair com o mouse
+let submenuTimeout;
+
+document.querySelectorAll('nav ul li').forEach(function(li) {
+    const submenu = li.querySelector('.submenu');
+    if (submenu) {
+        li.addEventListener('mouseenter', function() {
+            clearTimeout(submenuTimeout);
+            submenu.style.display = 'block';
+        });
+        li.addEventListener('mouseleave', function() {
+            submenuTimeout = setTimeout(function() {
+                submenu.style.display = 'none';
+            }, 3000); // 3 segundos
+        });
+        submenu.addEventListener('mouseenter', function() {
+            clearTimeout(submenuTimeout);
+            submenu.style.display = 'block';
+        });
+        submenu.addEventListener('mouseleave', function() {
+            submenuTimeout = setTimeout(function() {
+                submenu.style.display = 'none';
+            }, 5000);
+        });
+    }
+});
   </script>
 </body>
 </html>
