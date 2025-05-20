@@ -111,9 +111,6 @@
       z-index: 100;
       box-shadow: 0 5px 15px rgba(0,0,0,0.5);
       border-top: 3px solid var(--blood-red);
-      transition: opacity 0.5s;
-      opacity: 0;
-      pointer-events: none;
     }
 
     .submenu li {
@@ -135,8 +132,6 @@
 
     nav ul li:hover .submenu {
       display: block;
-      opacity: 1;
-      pointer-events: auto;
     }
 
     .inner {
@@ -953,7 +948,7 @@
           cartTotal += item.price * change;
           item.quantity = newQuantity;
         } else {
-          // Removes se quantidade chegar a zero
+          // Remove se quantidade chegar a zero
           removeItem(title);
         }
         
